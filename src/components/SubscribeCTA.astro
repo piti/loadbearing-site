@@ -1,0 +1,16 @@
+---
+import { GO_URL, LIBRARY_URL } from '../consts';
+interface Props { heading?: string; body?: string; }
+const {
+  heading = 'Get the kit, then the newsletter',
+  body = 'Every edition ships with a free kit — the actual structure or tool it describes, yours to copy. Grab the current one and you’re subscribed.',
+} = Astro.props;
+---
+<section class="cta">
+  <h2>{heading}</h2>
+  <p>{body}</p>
+  <div class="btn-row">
+    <a class="btn" href={GO_URL} rel="noopener">Get the free kit &rarr;</a>
+    <a class="btn alt" href={LIBRARY_URL} rel="noopener">Browse the library</a>
+  </div>
+</section>

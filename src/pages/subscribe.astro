@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { GO_URL, LIBRARY_URL, LINKEDIN_NEWSLETTER_URL } from '../consts';
+---
+<BaseLayout
+  title="Subscribe"
+  description="Load-Bearing goes out as a LinkedIn newsletter, and every edition has a free kit — the actual structure or tool it describes, yours to copy."
+>
+  <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Subscribe</div>
+  <h1 class="page-title">Subscribe</h1>
+  <p class="lede">
+    Load-Bearing goes out as a LinkedIn newsletter, and every edition has a free kit — the actual
+    structure or tool it describes, yours to copy. Subscribe on LinkedIn, and grab the kits any time
+    from the library.
+  </p>
+
+  <div class="btn-row" style="margin-bottom:14px">
+    <a class="btn" href={GO_URL} rel="noopener">Get the free kit &rarr;</a>
+    <!-- TODO (Peter, go-live): point to the Load-Bearing LinkedIn newsletter once Edition 1 publishes -->
+    <a class="btn alt" href={LINKEDIN_NEWSLETTER_URL} rel="noopener">Subscribe on LinkedIn</a>
+  </div>
+  <p class="dek" style="max-width:56ch">
+    Already subscribed? Every kit lives in the <a href={LIBRARY_URL} rel="noopener">Load-Bearing
+    library</a> — free to take and adapt, no need to sign up again.
+  </p>
+</BaseLayout>

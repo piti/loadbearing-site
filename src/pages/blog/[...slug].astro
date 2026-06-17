@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SubscribeCTA from '../../components/SubscribeCTA.astro';
+
+export async function getStaticPaths() {
+  // Only published posts get a route. Drafts (publish != true) are never synced
+  // into the collection, but this guard makes the contract explicit at build time.
+  const posts = await getCollection('blog', ({ data }) => data.publish !== false);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const canonical = new URL(`/blog/${post.id}`, Astro.site).href;
+---
+<BaseLayout title={post.data.title} description={post.data.description} canonical={canonical} type="article">
+  <article>
+    <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Blog</div>
+    <h1 class="page-title">{post.data.title}</h1>
+    <p class="article-meta">
+      {fmt(post.data.pubDate)}
+      {post.data.updatedDate && post.data.updatedDate.valueOf() !== post.data.pubDate.valueOf()
+        ? ` · updated ${fmt(post.data.updatedDate)}` : ''}
+    </p>
+    {post.data.description && <p class="lede">{post.data.description}</p>}
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+
+  <SubscribeCTA heading="If this was useful, the kit is free" />
+</BaseLayout>

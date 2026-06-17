@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SubscribeCTA from '../components/SubscribeCTA.astro';
+import { SITE_TITLE, TAGLINE, LIBRARY_URL } from '../consts';
+
+const posts = (await getCollection('blog', ({ data }) => data.publish !== false)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const latest = posts.slice(0, 3);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout title={SITE_TITLE} description={TAGLINE}>
+  <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Building with AI, from first principles</div>
+  <h1 class="page-title">{TAGLINE}</h1>
+  <p class="lede">
+    I've spent two decades on the parts of systems that have to hold weight — and lately, on building
+    real things with AI the same way. Load-Bearing is where I write down what actually works: the
+    structural stuff underneath the demos, not the demos. No hype, no slop — just the load-bearing parts,
+    with the exact structures and tools I use so you can take them.
+  </p>
+  <div class="btn-row" style="margin-bottom:8px">
+    <a class="btn" href="/subscribe">Subscribe &rarr;</a>
+    <a class="btn alt" href={LIBRARY_URL} rel="noopener">Browse the library</a>
+  </div>
+
+  {latest.length > 0 && (
+    <section style="margin-top:56px">
+      <div class="eyebrow"><span class="dot"></span>Latest</div>
+      <ul class="post-list">
+        {latest.map((post) => (
+          <li class="post-card">
+            <div class="meta">{fmt(post.data.pubDate)}</div>
+            <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+            <p class="dek">{post.data.description}</p>
+          </li>
+        ))}
+      </ul>
+      <p style="margin-top:22px"><a href="/blog">All posts &rarr;</a></p>
+    </section>
+  )}
+
+  <SubscribeCTA />
+</BaseLayout>

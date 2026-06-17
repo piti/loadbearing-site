@@ -1,0 +1,24 @@
+---
+import { NAV, SITE_TITLE } from '../consts';
+const { pathname } = Astro.url;
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname === href || pathname.startsWith(href + '/');
+---
+<header class="site-header">
+  <a class="brand" href="/" aria-label={`${SITE_TITLE} — home`}>
+    <!-- compact strata mark: amber capstone over layered bands -->
+    <svg class="mark" viewBox="0 0 26 26" aria-hidden="true">
+      <rect x="1" y="3" width="24" height="2.4" rx="1" fill="#d68c10"/>
+      <rect x="9" y="3" width="13" height="2.4" rx="1" fill="#ffd98a"/>
+      <rect x="1" y="9"  width="24" height="3.2" rx="1.2" fill="#2a3340"/>
+      <rect x="1" y="14" width="24" height="3.2" rx="1.2" fill="#212c3a"/>
+      <rect x="1" y="19" width="24" height="3.2" rx="1.2" fill="#1b2531"/>
+    </svg>
+    <span class="name">Load-Bearing</span>
+  </a>
+  <nav class="nav" aria-label="Primary">
+    {NAV.map((item) => (
+      <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+    ))}
+  </nav>
+</header>

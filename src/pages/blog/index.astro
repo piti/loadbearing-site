@@ -1,0 +1,34 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SubscribeCTA from '../../components/SubscribeCTA.astro';
+
+const posts = (await getCollection('blog', ({ data }) => data.publish !== false)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<BaseLayout title="Blog" description="Long-form notes on building real systems with AI, from first principles.">
+  <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Blog</div>
+  <h1 class="page-title">The Blog</h1>
+  <p class="lede">
+    The long-form versions — the structural stuff underneath the demos, with the exact structures and
+    tools I use so you can take them.
+  </p>
+
+  {posts.length === 0 ? (
+    <p class="dek">Nothing published yet. The first edition lands soon.</p>
+  ) : (
+    <ul class="post-list">
+      {posts.map((post) => (
+        <li class="post-card">
+          <div class="meta">{fmt(post.data.pubDate)}</div>
+          <h2><a href={`/blog/${post.id}`}>{post.data.title}</a></h2>
+          <p class="dek">{post.data.description}</p>
+        </li>
+      ))}
+    </ul>
+  )}
+
+  <SubscribeCTA />
+</BaseLayout>

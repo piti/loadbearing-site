@@ -1,0 +1,18 @@
+---
+import { LIBRARY_URL, LINKEDIN_NEWSLETTER_URL } from '../consts';
+const year = 2026;
+---
+<footer class="site-footer">
+  <svg class="foot-mark" viewBox="0 0 40 14" aria-hidden="true">
+    <rect x="0" y="0" width="40" height="1.6" rx="0.8" fill="#d68c10"/>
+    <rect x="12" y="0" width="16" height="1.6" rx="0.8" fill="#ffd98a"/>
+    <rect x="0" y="4" width="40" height="2.4" rx="1" fill="#2a3340"/>
+    <rect x="0" y="8" width="40" height="2.4" rx="1" fill="#212c3a"/>
+  </svg>
+  <span>© {year} Peter — <b>Load-Bearing</b></span>
+  <span class="foot-links">
+    <!-- TODO (Peter, go-live): point to the Load-Bearing LinkedIn newsletter -->
+    <a href={LINKEDIN_NEWSLETTER_URL} rel="noopener">LinkedIn</a>
+    <a href={LIBRARY_URL} rel="noopener">Library</a>
+  </span>
+</footer>
