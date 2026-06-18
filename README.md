@@ -7,8 +7,11 @@ home; the two subdomains stay cleanly separated.
 
 ## Architecture
 
-- **Astro** (static output), minimal JS. Reuses the locked charcoal/amber design
-  tokens + strata motif from the landing pages so both subdomains read as one brand.
+- **Astro** (static output), minimal JS. Built on the locked **v2 identity**
+  (`projects/newsletter/brand/IDENTITY.md`): navy `#0B1730` + one accent, signal
+  blue `#2E6BF0`; self-hosted Bricolage Grotesque / Inter / JetBrains Mono variable
+  fonts; the LB lettermark; and a class-based **light/dark toggle (default dark)**
+  with a no-flash inline script. The retired charcoal/amber "strata" identity is gone.
 - **Blog source of truth is the vault**: `projects/newsletter/blog/*.md`.
   `scripts/sync-content.mjs` distills each file into a clean content-collection entry
   under `src/content/blog/` (committed), applying:
