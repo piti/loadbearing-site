@@ -16,10 +16,9 @@ export const KIT_LIBRARY_PATH = `${KIT_BASE}/`;
 export const KIT_PDF_PATH = `${KIT_BASE}/context-vault.pdf`;
 export const KIT_BUILDER_PATH = `${KIT_BASE}/builder.md`;
 
-// Social channel (NOT a reward link). Generic-but-valid placeholder until the
-// Load-Bearing LinkedIn newsletter exists at launch.
-// TODO (Peter, go-live): swap to the Load-Bearing LinkedIn newsletter URL.
-export const LINKEDIN_URL = 'https://www.linkedin.com/';
+// Social channel (NOT a reward link). Peter's LinkedIn profile, where the
+// Load-Bearing newsletter is published.
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/pkwi/';
 
 export const NAV = [
   { href: '/', label: 'Home' },

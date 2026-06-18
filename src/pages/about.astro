@@ -7,17 +7,57 @@ import SubscribeCTA from '../components/SubscribeCTA.astro';
   description="An engineer with 20+ years in platform security and systems architecture, writing about building with AI from first principles."
 >
   <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>About</div>
-  <h1 class="page-title">About</h1>
+
+  <div class="about-head">
+    <img class="about-photo" src="/peter.jpg" width="124" height="124"
+         alt="Portrait of Peter, author of Load-Bearing" />
+    <div>
+      <h1 class="page-title about-title">About</h1>
+      <p class="about-role">Engineer · platform security &amp; systems architecture</p>
+    </div>
+  </div>
+
   <div class="prose">
     <p>
-      I'm Peter — an engineer with 20+ years in platform security and systems architecture,
-      including co-founding an open-source hardware root of trust. Load-Bearing is my notebook
-      for building with AI the way I'd build anything that has to last: from first principles,
-      owned in plain files, made to survive the tool that made it. Everything here is something
-      I actually use. I share the structure, not a pitch.
+      I'm Peter — an engineer with 20+ years in platform security and systems architecture.
+      Load-Bearing is my notebook for building with AI the way I'd build anything that has to
+      last: from first principles, owned in plain files, made to survive the tool that made it.
+      Everything here is something I actually use. I share the structure, not a pitch.
     </p>
-    <!-- (Peter: add surname + any links you want on this page.) -->
   </div>
 
   <SubscribeCTA />
 </BaseLayout>
+
+<style>
+  .about-head {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin: 6px 0 30px;
+  }
+  .about-photo {
+    width: 124px;
+    height: 124px;
+    flex: 0 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow:
+      0 0 0 2px var(--signal),
+      0 0 0 8px var(--field-glow),
+      0 14px 40px rgba(0, 0, 0, 0.40);
+  }
+  .about-title { margin: 0; }
+  .about-role {
+    margin: 10px 0 0;
+    font-family: var(--mono);
+    font-size: 13.5px;
+    letter-spacing: 0.04em;
+    color: var(--ice);
+  }
+  @media (max-width: 560px) {
+    .about-head { gap: 20px; }
+    .about-photo { width: 96px; height: 96px; }
+  }
+</style>
