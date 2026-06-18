@@ -1,26 +1,118 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { GO_URL, LIBRARY_URL, LINKEDIN_NEWSLETTER_URL } from '../consts';
+// The opt-in form (spec §5). Copy ported from landing/index.html, re-skinned to
+// the v2 identity. Posts to /api/signup. Success = "check your inbox" with NO
+// direct asset links shown (the kit only arrives by email — the gate).
 ---
 <BaseLayout
   title="Subscribe"
-  description="Load-Bearing goes out as a LinkedIn newsletter, and every edition has a free kit — the actual structure or tool it describes, yours to copy."
+  description="The Context Vault — a free starter kit. The file-based memory layer underneath your AI: a folder of files you own, not a product."
 >
-  <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Subscribe</div>
-  <h1 class="page-title">Subscribe</h1>
+  <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Free download</div>
+  <h1 class="page-title">The Context Vault</h1>
   <p class="lede">
-    Load-Bearing goes out as a LinkedIn newsletter, and every edition has a free kit — the actual
-    structure or tool it describes, yours to copy. Subscribe on LinkedIn, and grab the kits any time
-    from the library.
+    Give your AI a memory that's actually <b>yours</b> — a folder of plain files you own, not a product
+    you rent. Subscribe and I'll email you the kit.
   </p>
 
-  <div class="btn-row" style="margin-bottom:14px">
-    <a class="btn" href={GO_URL} rel="noopener">Get the free kit &rarr;</a>
-    <!-- TODO (Peter, go-live): point to the Load-Bearing LinkedIn newsletter once Edition 1 publishes -->
-    <a class="btn alt" href={LINKEDIN_NEWSLETTER_URL} rel="noopener">Subscribe on LinkedIn</a>
+  <ul class="kit">
+    <li><b>The three-layer folder structure</b> — raw, working, and compounding, with the rule for each</li>
+    <li><b>The anchor template</b> — the one file that holds a project's current state</li>
+    <li><b>The <span class="mono">AGENTS.md</span> entry file</b> — what every agent reads first to orient itself</li>
+    <li><b>The prompts</b> that load context at the start of a session</li>
+  </ul>
+
+  <form id="f" novalidate>
+    <label for="email" class="hp">Your email</label>
+    <input class="ipt" id="email" name="email" type="email" inputmode="email"
+           autocomplete="email" placeholder="you@email.com" required aria-label="Your email" />
+    <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
+    <button class="btn" type="submit">Send me the kit</button>
+  </form>
+  <p class="reassure" id="reassure">No spam. You'll get the kit, then the occasional edition. Unsubscribe anytime.</p>
+  <p class="err" id="err" role="alert" aria-live="polite"></p>
+
+  <div class="done" id="done">
+    <div class="check">✓ On its way</div>
+    <h2>Check your inbox — and your spam folder.</h2>
+    <p>
+      The email's on its way. A brand-new sender like me sometimes lands in spam or the Promotions tab
+      the first time — if you find it there, drag it to your inbox so future editions arrive where they
+      should.
+    </p>
   </div>
-  <p class="dek" style="max-width:56ch">
-    Already subscribed? Every kit lives in the <a href={LIBRARY_URL} rel="noopener">Load-Bearing
-    library</a> — free to take and adapt, no need to sign up again.
-  </p>
 </BaseLayout>
+
+<style>
+  .kit { list-style: none; margin: 0 0 34px; padding: 0; display: grid; gap: 13px; }
+  .kit li { position: relative; padding-left: 28px; font-size: 16px; color: var(--text-soft); }
+  .kit li::before {
+    content: ""; position: absolute; left: 0; top: .62em; width: 11px; height: 2px;
+    border-radius: 2px; background: var(--signal); box-shadow: 9px 0 0 -4px var(--signal);
+  }
+  .kit li b { color: var(--text); font-weight: 600; }
+  .kit .mono { font-family: var(--mono); font-size: .92em; }
+
+  form { display: flex; gap: 10px; max-width: 480px; }
+  @media (max-width: 520px) { form { flex-direction: column; } }
+  .ipt {
+    flex: 1; min-width: 0; background: var(--bg-panel); border: 1px solid var(--line);
+    color: var(--text); font-family: var(--body); font-size: 16px; padding: 13px 16px;
+    border-radius: 10px; transition: border-color .15s, box-shadow .15s;
+  }
+  .ipt::placeholder { color: var(--text-faint); }
+  .ipt:focus { outline: none; border-color: var(--signal); box-shadow: 0 0 0 3px rgba(46,107,240,.18); }
+  .btn[disabled] { opacity: .6; cursor: progress; }
+
+  .reassure { font-size: 13.5px; color: var(--text-faint); margin: 15px 0 0; }
+  .err { font-size: 14px; color: #d4663a; margin: 14px 0 0; min-height: 0; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .done { display: none; }
+  .done.show { display: block; animation: rise .4s ease both; }
+  form.hide, .reassure.hide { display: none; }
+  .done .check {
+    font-family: var(--mono); font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--signal); margin-bottom: 14px;
+  }
+  .done h2 {
+    font-family: var(--display); font-weight: 600; font-size: clamp(24px,4vw,32px);
+    margin: 0 0 12px; color: var(--heading); letter-spacing: -.02em;
+  }
+  .done p { color: var(--text-soft); margin: 0; max-width: 46ch; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .done.show { animation: none; } }
+</style>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('f');
+    var email = document.getElementById('email');
+    var err = document.getElementById('err');
+    var btn = form.querySelector('.btn');
+    function fail(msg) { err.textContent = msg; }
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      err.textContent = '';
+      var val = (email.value || '').trim();
+      if (form.company && form.company.value) { return; }   // honeypot (client mirror)
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        fail("That email doesn't look right — mind checking it?"); email.focus(); return;
+      }
+      btn.disabled = true; btn.textContent = 'Sending…';
+      try {
+        var res = await fetch('/api/signup', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: val, source: 'subscribe-page' }),
+        });
+        if (!res.ok) throw new Error('bad status ' + res.status);
+        form.classList.add('hide');
+        document.getElementById('reassure').classList.add('hide');
+        document.getElementById('done').classList.add('show');
+      } catch (_) {
+        btn.disabled = false; btn.textContent = 'Send me the kit';
+        fail("Something went wrong on my end — try again in a moment, or email me directly.");
+      }
+    });
+  })();
+</script>

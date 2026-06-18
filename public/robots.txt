@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Hidden reward assets (spec §4) — unlinked + noindex; keep crawlers out.
+Disallow: /kit/
 
-Sitemap: https://loadbearing.blog/sitemap.xml
+Sitemap: https://loadbearing.blog/sitemap-index.xml
