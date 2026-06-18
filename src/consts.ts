@@ -15,6 +15,10 @@ export const KIT_BASE = `/kit/${KIT_SLUG}`;
 export const KIT_LIBRARY_PATH = `${KIT_BASE}/`;
 export const KIT_PDF_PATH = `${KIT_BASE}/context-vault.pdf`;
 export const KIT_BUILDER_PATH = `${KIT_BASE}/builder.md`;
+// Edition 2 ("Fill the Vault") additions to the same library slug — the Loader
+// (an agent-runnable Markdown file) + its human-readable Loading Guide PDF.
+export const KIT_LOADER_PATH = `${KIT_BASE}/loader.md`;
+export const KIT_LOADING_GUIDE_PATH = `${KIT_BASE}/loading-guide.pdf`;
 
 // Social channel (NOT a reward link). Peter's LinkedIn profile, where the
 // Load-Bearing newsletter is published.

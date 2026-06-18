@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH } from '../../../consts';
+import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH } from '../../../consts';
 
 // One static page at the fixed slug. Hidden, noindex, unlinked (spec §4).
 export function getStaticPaths() {
@@ -36,6 +36,33 @@ export function getStaticPaths() {
       <div class="btn-row">
         <a class="btn" href={KIT_PDF_PATH}>Download the guide (PDF) &rarr;</a>
         <a class="btn alt" href={KIT_BUILDER_PATH}>Get the builder &rarr;</a>
+      </div>
+    </article>
+
+    <article class="res">
+      <div class="res-meta">Markdown loader</div>
+      <h2>The Context Vault — Loader</h2>
+      <p>
+        Once the vault exists, this fills it — with the knowledge you already have, scattered across
+        old AI chats, folders, and repos. You hand the Loader to your AI; it extracts each source into
+        a staging file you review, then compiles the approved parts into durable pages. Two steps,
+        never one, so a stray hallucination never reaches your permanent memory.
+      </p>
+      <div class="btn-row">
+        <a class="btn alt" href={KIT_LOADER_PATH}>Get the Loader &rarr;</a>
+      </div>
+    </article>
+
+    <article class="res">
+      <div class="res-meta">PDF guide</div>
+      <h2>Loading Guide</h2>
+      <p>
+        The human-readable half of the Loader: the extract-then-compile method in plain English — why
+        you stage before you commit, why the AI proposes decisions instead of minting them, and the
+        keep-it-fed loops that stop slow rot. Read it to understand what the Loader is doing.
+      </p>
+      <div class="btn-row">
+        <a class="btn" href={KIT_LOADING_GUIDE_PATH}>Download the guide (PDF) &rarr;</a>
       </div>
     </article>
   </section>
