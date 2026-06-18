@@ -1,26 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-// The opt-in form (spec §5). Copy ported from landing/index.html, re-skinned to
-// the v2 identity. Posts to /api/signup. Success = "check your inbox" with NO
-// direct asset links shown (the kit only arrives by email — the gate).
+// Brand-level opt-in (spec §6). Posts to /api/signup. Success = "check your inbox"
+// with NO direct asset links shown (the kit only arrives by email — the gate).
 ---
 <BaseLayout
   title="Subscribe"
-  description="The Context Vault — a free starter kit. The file-based memory layer underneath your AI: a folder of files you own, not a product."
+  description="An engineer's notebook on building things that actually work with AI — the structure under the demos, and the exact kit to copy."
 >
-  <div class="eyebrow"><span class="dot"></span>Load-Bearing<span class="sep">·</span>Free download</div>
-  <h1 class="page-title">The Context Vault</h1>
+  <div class="eyebrow">THE NEWSLETTER</div>
+  <h1 class="page-title">Join Load-Bearing</h1>
   <p class="lede">
-    Give your AI a memory that's actually <b>yours</b> — a folder of plain files you own, not a product
-    you rent. Subscribe and I'll email you the kit.
+    An engineer's notebook on building things that actually work with AI — the structure under
+    the demos, and the exact kit to copy. A new edition every couple of weeks.
   </p>
-
-  <ul class="kit">
-    <li><b>The three-layer folder structure</b> — raw, working, and compounding, with the rule for each</li>
-    <li><b>The anchor template</b> — the one file that holds a project's current state</li>
-    <li><b>The <span class="mono">AGENTS.md</span> entry file</b> — what every agent reads first to orient itself</li>
-    <li><b>The prompts</b> that load context at the start of a session</li>
-  </ul>
+  <p class="gift">
+    Subscribe and I'll send you The Context Vault — the file-based memory kit I actually use —
+    as a welcome gift.
+  </p>
 
   <form id="f" novalidate>
     <label for="email" class="hp">Your email</label>
@@ -29,7 +25,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" />
     <button class="btn" type="submit">Send me the kit</button>
   </form>
-  <p class="reassure" id="reassure">No spam. You'll get the kit, then the occasional edition. Unsubscribe anytime.</p>
+  <p class="reassure" id="reassure">No spam. Unsubscribe anytime.</p>
   <p class="err" id="err" role="alert" aria-live="polite"></p>
 
   <div class="done" id="done">
@@ -44,14 +40,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  .kit { list-style: none; margin: 0 0 34px; padding: 0; display: grid; gap: 13px; }
-  .kit li { position: relative; padding-left: 28px; font-size: 16px; color: var(--text-soft); }
-  .kit li::before {
-    content: ""; position: absolute; left: 0; top: .62em; width: 11px; height: 2px;
-    border-radius: 2px; background: var(--signal); box-shadow: 9px 0 0 -4px var(--signal);
-  }
-  .kit li b { color: var(--text); font-weight: 600; }
-  .kit .mono { font-family: var(--mono); font-size: .92em; }
+  .gift { font-size: clamp(16px,2.2vw,18px); color: var(--text-soft); margin: -10px 0 34px; max-width: 48ch; }
 
   form { display: flex; gap: 10px; max-width: 480px; }
   @media (max-width: 520px) { form { flex-direction: column; } }

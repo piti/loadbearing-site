@@ -1,10 +1,10 @@
 ---
-// The only reward CTA anywhere public (spec §4/§5): Subscribe → /subscribe.
+// Generic brand-level CTA (spec section 6). No edition-specific copy. Subscribe -> /subscribe.
 // No kit/library/PDF links leak onto public pages.
 interface Props { heading?: string; body?: string; }
 const {
-  heading = 'Get the kit, then the newsletter',
-  body = 'Every edition ships with a free kit — the actual structure or tool it describes, yours to copy. Subscribe and I’ll email you the current one.',
+  heading = `Subscribe to Load-Bearing`,
+  body = `An engineer’s notebook on building with AI. Subscribe and I’ll send you The Context Vault — the file-based memory kit I actually use — as a welcome gift.`,
 } = Astro.props;
 ---
 <section class="cta">
