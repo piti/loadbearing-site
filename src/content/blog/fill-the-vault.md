@@ -1,20 +1,20 @@
 ---
 title: "How I Filled the AI's Memory With Knowledge I Already Had"
 description: "The extract-and-compile workflow that turns scattered history into a vault"
-pubDate: 2026-06-17
+pubDate: 2026-06-18
 updatedDate: 2026-06-18
-publish: false
+publish: true
 ---
 
-A while back I [posted](https://www.linkedin.com/posts/activity-7437946247543611394-mDiy) about asking Claude to comb my whole history and hand me an honest scorecard of how I work. Last edition I shared the structure underneath my AI's memory — a three-layer folder you own instead of a product you rent. This piece connects the two, because the scorecard was a preview of the move that fills the whole thing: mining knowledge that already exists.
+Last edition I handed you a set of empty shelves — a three-layer folder structure that gives an AI a memory you own instead of a product you rent. *Empty* being the operative word. Shelves with nothing on them do nothing, and that's the reply that came straight back.
 
 > New here? This is part two. Start with **[Edition 1 — The Foundation](/blog/the-foundation)**: it's the structure this piece fills. Then come back.
 
-The most common reply to the last edition was the obvious one: *empty shelves don't do anything — how do I get my actual knowledge in there?* Fair. That's the messy, hard half — the real work that rarely gets shown. Don't worry, I've got you.
+The blunt version: *how do I get my actual knowledge in there?* Fair. That's the messy, hard half — the real work that rarely gets shown. Don't worry, I've got you.
 
 Here's the reframe that made it tractable for me: **you don't have a knowledge problem, you have an extraction problem.** The context your AI needs already exists. It's just trapped — scattered across months of chats, half-written docs in folders you forgot about, READMEs and commit history in your repos, a decision you made in some conversation back in spring and never wrote down. You're not authoring it from scratch. You're freeing it.
 
-And the scorecard post is proof you've already done a version of it. Asking an AI to read months of history and surface what it found *is* extraction. The only thing wrong with it as a memory strategy is what happened next: it was a one-off report I read once and lost. Do the same move, but land the output in the vault, and it stops evaporating. It compounds.
+You've already run a version of this, actually. That [scorecard post](https://www.linkedin.com/posts/activity-7437946247543611394-mDiy) a while back — where I had Claude comb months of history and surface how I actually work — that *is* extraction. The only thing wrong with it as a memory strategy was what happened next: a one-off report I read once and lost. Do the same move, but land the output in the vault, and it stops evaporating. It compounds.
 
 ### Why this is two steps, not one
 
