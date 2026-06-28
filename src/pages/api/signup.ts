@@ -31,7 +31,7 @@ const EMAIL_HTML = (pdf: string, lib: string) => `<div style="font-family:-apple
   <p>Welcome &mdash; you're in.</p>
   <p>Here's the kit you asked for, the file-based memory structure I actually use, scrubbed and ready to copy:</p>
   <p><a href="${pdf}" style="color:#2E6BF0;font-weight:600">Download The Context Vault (PDF) &rarr;</a></p>
-  <p>It also lives in your <a href="${lib}" style="color:#2E6BF0;font-weight:600">Load-Bearing library</a> &mdash; along with a <b>builder file you can hand to your AI</b> (it interviews you and sets the vault up with you) and a <b>loader</b> that fills the vault with the knowledge you already have, scattered across old chats, notes, and repos. Bookmark that library link: new kits get added there and I'll give you a heads-up when they do. No need to sign up again.</p>
+  <p>It also lives in your <a href="${lib}" style="color:#2E6BF0;font-weight:600">Load-Bearing library</a> &mdash; along with a <b>builder file you can hand to your AI</b> (it interviews you and sets the vault up with you), a <b>loader</b> that fills the vault with the knowledge you already have, scattered across old chats, notes, and repos, and a <b>cheat-sheet</b> for using your vault in any AI tool. Bookmark that library link: new kits get added there and I'll give you a heads-up when they do. No need to sign up again.</p>
   <p>More soon &mdash; that's what Load-Bearing is for.</p>
   <p>&mdash; Peter</p>
   <p style="font-size:13px;color:#8a8a8a;margin-top:18px">P.S. If this landed in spam or Promotions, drag it to your inbox &mdash; it helps the next edition reach you.</p>
@@ -43,7 +43,7 @@ Here's the kit you asked for — the file-based memory structure I actually use,
 
 Download The Context Vault (PDF): ${pdf}
 
-It also lives in your Load-Bearing library — along with a builder file you can hand to your AI (it interviews you and sets the vault up with you) and a loader that fills the vault with the knowledge you already have, scattered across old chats, notes, and repos:
+It also lives in your Load-Bearing library — along with a builder file you can hand to your AI (it interviews you and sets the vault up with you), a loader that fills the vault with the knowledge you already have, scattered across old chats, notes, and repos, and a cheat-sheet for using your vault in any AI tool:
 ${lib}
 
 Bookmark that link — new kits get added there and I'll give you a heads-up when they do. No need to sign up again.

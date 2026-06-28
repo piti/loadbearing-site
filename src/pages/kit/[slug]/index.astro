@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH } from '../../../consts';
+import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH, KIT_CHEATSHEET_PATH } from '../../../consts';
 
 // One static page at the fixed slug. Hidden, noindex, unlinked (spec §4).
 export function getStaticPaths() {
@@ -63,6 +63,20 @@ export function getStaticPaths() {
       </p>
       <div class="btn-row">
         <a class="btn" href={KIT_LOADING_GUIDE_PATH}>Download the guide (PDF) &rarr;</a>
+      </div>
+    </article>
+
+    <article class="res">
+      <div class="res-meta">Markdown cheat-sheet</div>
+      <h2>Use It Anywhere — Cheat-Sheet</h2>
+      <p>
+        One page for <b>using</b> the vault you built: the three ways to load the right slice into any
+        AI tool — paste it, attach it to a project, or point an agent at the folder — plus a
+        per-assistant table (ChatGPT, Claude, Gemini, editors, local models) and what to trim before
+        you send.
+      </p>
+      <div class="btn-row">
+        <a class="btn alt" href={KIT_CHEATSHEET_PATH}>Get the cheat-sheet &rarr;</a>
       </div>
     </article>
   </section>

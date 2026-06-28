@@ -19,6 +19,9 @@ export const KIT_BUILDER_PATH = `${KIT_BASE}/builder.md`;
 // (an agent-runnable Markdown file) + its human-readable Loading Guide PDF.
 export const KIT_LOADER_PATH = `${KIT_BASE}/loader.md`;
 export const KIT_LOADING_GUIDE_PATH = `${KIT_BASE}/loading-guide.pdf`;
+// Edition 3 ("Use It Anywhere") addition to the same library slug — a one-page
+// Markdown cheat-sheet for loading the right vault slice into any AI tool.
+export const KIT_CHEATSHEET_PATH = `${KIT_BASE}/cheatsheet.md`;
 
 // Social channel (NOT a reward link). Peter's LinkedIn profile, where the
 // Load-Bearing newsletter is published.
