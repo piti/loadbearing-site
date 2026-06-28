@@ -1,8 +1,8 @@
 ---
 title: "Use It Anywhere: One Memory, Every AI Tool"
 description: "Your owned vault is portable by design — here's how to load it into any assistant, and the one rule that makes it work."
-pubDate: 2026-06-27
-updatedDate: 2026-06-27
+pubDate: 2026-06-30
+updatedDate: 2026-06-30
 publish: true
 ---
 
