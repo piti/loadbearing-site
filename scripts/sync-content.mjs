@@ -21,7 +21,18 @@ import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const SRC_DIR = join(__dirname, '..', '..', 'blog');           // vault blog source
+// Blog sources live in the VAULT (content); this site repo lives OUTSIDE the vault
+// (~/dev/loadbearing-site — a buildable asset). The vault sits at a different absolute
+// path on each machine (peter@mini, pkwidzin@laptop), so there is no portable relative
+// path — resolve it from LB_BLOG_SRC. Set it in the publish dispatch / your shell:
+//   LB_BLOG_SRC=/Users/peter/vault/projects/newsletter/blog    (mini)
+//   LB_BLOG_SRC=/Users/pkwidzin/vault/projects/newsletter/blog (laptop)
+const SRC_DIR = process.env.LB_BLOG_SRC || '';
+if (!SRC_DIR || !existsSync(SRC_DIR)) {
+  console.error(`sync-content: LB_BLOG_SRC is unset or missing (got: ${SRC_DIR || '<empty>'}).`);
+  console.error('  Set it to the vault blog dir, e.g. /Users/peter/vault/projects/newsletter/blog');
+  process.exit(1);
+}
 const OUT_DIR = join(__dirname, '..', 'src', 'content', 'blog'); // collection target
 
 // Headings that mark the end of the publishable article body.
