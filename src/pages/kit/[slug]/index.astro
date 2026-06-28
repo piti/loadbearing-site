@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH, KIT_CHEATSHEET_PATH } from '../../../consts';
+import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH, KIT_CHEATSHEET_PATH, KIT_FAMILY_VAULT_BUILDER_PATH } from '../../../consts';
 
 // One static page at the fixed slug. Hidden, noindex, unlinked (spec §4).
 export function getStaticPaths() {
@@ -79,6 +79,19 @@ export function getStaticPaths() {
         <a class="btn alt" href={KIT_CHEATSHEET_PATH}>Get the cheat-sheet &rarr;</a>
       </div>
     </article>
+
+          <article class="res">
+            <div class="res-meta">Markdown builder</div>
+            <h2>Personal &amp; Family — Family Vault Builder</h2>
+            <p>
+              The same idea, pointed at your life instead of your work: a builder you hand to your AI and
+              it interviews you — food, travel, the kids, the household — then sets up a <b>family vault</b>
+              with the keep-it-separate boundary baked in, so the assistants you use for work can't read it.
+            </p>
+            <div class="btn-row">
+              <a class="btn alt" href={KIT_FAMILY_VAULT_BUILDER_PATH}>Get the builder &rarr;</a>
+            </div>
+          </article>
   </section>
 
   <p class="lib-foot">

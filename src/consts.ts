@@ -22,6 +22,9 @@ export const KIT_LOADING_GUIDE_PATH = `${KIT_BASE}/loading-guide.pdf`;
 // Edition 3 ("Use It Anywhere") addition to the same library slug — a one-page
 // Markdown cheat-sheet for loading the right vault slice into any AI tool.
 export const KIT_CHEATSHEET_PATH = `${KIT_BASE}/cheatsheet.md`;
+// Edition 4 ("Personal & Family") addition — a builder that interviews you and
+// sets up a walled-off family vault (kept separate from your work scopes).
+export const KIT_FAMILY_VAULT_BUILDER_PATH = `${KIT_BASE}/family-vault-builder.md`;
 
 // Social channel (NOT a reward link). Peter's LinkedIn profile, where the
 // Load-Bearing newsletter is published.
