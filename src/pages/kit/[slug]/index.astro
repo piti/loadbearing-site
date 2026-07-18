@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH, KIT_CHEATSHEET_PATH, KIT_FAMILY_VAULT_BUILDER_PATH } from '../../../consts';
+import { KIT_SLUG, KIT_PDF_PATH, KIT_BUILDER_PATH, KIT_LOADER_PATH, KIT_LOADING_GUIDE_PATH, KIT_CHEATSHEET_PATH, KIT_FAMILY_VAULT_BUILDER_PATH, KIT_FIELD_GUIDE_PATH } from '../../../consts';
 
 // One static page at the fixed slug. Hidden, noindex, unlinked (spec §4).
 export function getStaticPaths() {
@@ -92,6 +92,21 @@ export function getStaticPaths() {
               <a class="btn alt" href={KIT_FAMILY_VAULT_BUILDER_PATH}>Get the builder &rarr;</a>
             </div>
           </article>
+
+        <article class="res">
+          <div class="res-meta">PDF field guide</div>
+          <h2>Assemble, Don't Build</h2>
+          <p>
+            The build-vs-buy question, retired: it was never build-vs-buy, it's <b>which layer</b>. A
+            decision framework for composing your own agent stack — the two-question test to run on
+            every component, the six-layer map (four you rent, two you own), the four-question gate
+            test, and the one invariant that survives full autonomy: <span class="mono">fail loud</span>.
+            Ends with a worksheet to map your own stack.
+          </p>
+          <div class="btn-row">
+            <a class="btn" href={KIT_FIELD_GUIDE_PATH}>Download the field guide (PDF) &rarr;</a>
+          </div>
+        </article>
   </section>
 
   <p class="lib-foot">

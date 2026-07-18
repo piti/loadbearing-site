@@ -25,6 +25,10 @@ export const KIT_CHEATSHEET_PATH = `${KIT_BASE}/cheatsheet.md`;
 // Edition 4 ("Personal & Family") addition — a builder that interviews you and
 // sets up a walled-off family vault (kept separate from your work scopes).
 export const KIT_FAMILY_VAULT_BUILDER_PATH = `${KIT_BASE}/family-vault-builder.md`;
+// Edition 5 ("Why I Built My Own") addition — the "Assemble, Don't Build" field
+// guide PDF (build-vs-buy → which-layer decision framework + worksheet).
+// Pre-wired ahead of the Ed 5 launch, same as prior magnets.
+export const KIT_FIELD_GUIDE_PATH = `${KIT_BASE}/assemble-dont-build.pdf`;
 
 // Social channel (NOT a reward link). Peter's LinkedIn profile, where the
 // Load-Bearing newsletter is published.
